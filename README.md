@@ -1,1 +1,1 @@
-# ballin-octo-spice
+# Multi-database metastore Web Client
