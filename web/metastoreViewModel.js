@@ -1,10 +1,10 @@
 var restBaseUrl = "http://localhost:7654/";
 
-function metaStoreViewModel(DBtype,IPAdress,port,username,password,DBname) {
+function metaStoreViewModel(DBtype,IPAddress,port,username,password,DBname) {
 	var self = this;
 
 	self.DBtype = ko.observable(DBtype);
-	self.IPAdress = ko.observable(IPAdress);
+	self.IPAddress = ko.observable(IPAddress);
 	self.port = ko.observable(port);
 	self.username = ko.observable(username);
 	self.password = ko.observable(password);
@@ -15,28 +15,28 @@ function metaStoreViewModel(DBtype,IPAdress,port,username,password,DBname) {
 function metaStoresViewModel() {
 	var self = this;
 
-	self.metaStore = ko.observableArray();
+	self.metaStores = ko.observableArray();
 
 	self.newmetaStore = ko.observable(new metaStoreViewModel());
 
 	self.findAll = function() {
 		$.ajax({
-			url: restBaseUrl + "metastore",
+			url: restBaseUrl + "metaStore",
 			type: 'GET',
 			dataType: 'json',
 			contentType: "application/json",
 			crossDomain: true,
 			success: function(data) {
-				self.metastore.removeAll();
+				self.metastores.removeAll();
 
 				for (var i = 0; i < data.length; i++) {
-					var metastore = new metaStoreViewModel(data[i].DBtype,data[i].IPAdress,data[i].port,data[i].username,data[i].password,data[i].DBname);
+					var metastore = new metaStoreViewModel(data[i].DBtype,data[i].IPAddress,data[i].port,data[i].username,data[i].password,data[i].DBname);
                    
-					self.metastore.push(metastore);
+					self.metastores.push(metastore);
 				}
 			},
 			error: function(data) {
-				alert("Something went wrong while getting persons list. Please try again.");
+				alert("Something went wrong while getting metastores list. Please try again.");
 			}
 		});
 	};
@@ -50,11 +50,11 @@ function metaStoresViewModel() {
 			contentType: "application/json",
 			crossDomain: true,
 			success: function(data) {
-				self.metastore.push(new metaStoreViewModel(data.DBtype,data.IPAdress,data.port,data.username,data.password,data.DBname));
+				self.metastores.push(new metaStoreViewModel(data.DBtype,data.IPAddress,data.port,data.username,data.password,data.DBname));
 				self.newmetaStore(new metaStoreViewModel());
 			},
 			error: function(data) {
-				alert("Something went wrong while adding new person. Please try again.");
+				alert("Something went wrong while adding new metastore. Please try again.");
 			}
 		});
 	};
