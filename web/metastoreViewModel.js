@@ -15,7 +15,7 @@ function metaStoreViewModel(DBtype,IPAddress,port,username,password,DBname) {
 function metaStoresViewModel() {
 	var self = this;
 
-	self.metaStores = ko.observableArray();
+	self.mStore = ko.observableArray();
 
 	self.newmetaStore = ko.observable(new metaStoreViewModel());
 
@@ -27,12 +27,12 @@ function metaStoresViewModel() {
 			contentType: "application/json",
 			crossDomain: true,
 			success: function(data) {
-				self.metastores.removeAll();
+				self.mStores.removeAll();
 
 				for (var i = 0; i < data.length; i++) {
-					var metastore = new metaStoreViewModel(data[i].DBtype,data[i].IPAddress,data[i].port,data[i].username,data[i].password,data[i].DBname);
+					var mStore = new metaStoreViewModel(data[i].DBtype,data[i].IPAddress,data[i].port,data[i].username,data[i].password,data[i].DBname);
                    
-					self.metastores.push(metastore);
+					self.mStore.push(mStore);
 				}
 			},
 			error: function(data) {
@@ -50,7 +50,7 @@ function metaStoresViewModel() {
 			contentType: "application/json",
 			crossDomain: true,
 			success: function(data) {
-				self.metastores.push(new metaStoreViewModel(data.DBtype,data.IPAddress,data.port,data.username,data.password,data.DBname));
+				self.mStore.push(new metaStoreViewModel(data.DBtype,data.IPAddress,data.port,data.username,data.password,data.DBname));
 				self.newmetaStore(new metaStoreViewModel());
 			},
 			error: function(data) {
