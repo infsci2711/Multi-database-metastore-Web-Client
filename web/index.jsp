@@ -56,7 +56,7 @@ and open the template in the editor.
                 <button type="submit" class="btn btn-primary btn-primary btn-block" data-bind="click: addmetaStore">Sign up</button>
             </form>
 <h3>
-		        	There are <span data-bind="text: metaStores().length"></span> metadata in our databases.
+		        	There are <span data-bind="text: mStores().length"></span> metadata in our databases.
 		        	<button class="btn btn-default" data-bind="click: findAll">Refresh</button>
 		    	</h3> 
         <table class="table table-striped table-hover">
@@ -71,7 +71,7 @@ and open the template in the editor.
                                     <th>DBname</th>
 		                </tr> 
 		            </thead> 
-		            <tbody data-bind="foreach: metaStores">
+		            <tbody data-bind="foreach: mStores">
 		                <tr>  
                                     <td data-bind="text: $index"></td> 
 		                    <td data-bind="text: DBtype"></td>  
