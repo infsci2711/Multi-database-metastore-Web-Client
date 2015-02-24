@@ -9,13 +9,12 @@ function metaStoreViewModel(DBtype,IPAddress,port,username,password,DBname) {
 	self.username = ko.observable(username);
 	self.password = ko.observable(password);
 	self.DBname = ko.observable(DBname);
-
 }
 
 function metaStoresViewModel() {
 	var self = this;
 
-	self.mStore = ko.observableArray();
+	self.metastores = ko.observableArray();
 
 	self.newmetaStore = ko.observable(new metaStoreViewModel());
 
@@ -27,16 +26,16 @@ function metaStoresViewModel() {
 			contentType: "application/json",
 			crossDomain: true,
 			success: function(data) {
-				self.mStores.removeAll();
+				self.metastores.removeAll();
 
 				for (var i = 0; i < data.length; i++) {
-					var mStore = new metaStoreViewModel(data[i].DBtype,data[i].IPAddress,data[i].port,data[i].username,data[i].password,data[i].DBname);
+					var metaStore = new metaStoreViewModel(data[i].DBtype,data[i].IPAddress,data[i].port,data[i].username,data[i].password,data[i].DBname);
                    
-					self.mStores.push(mStore);
+					self.metastores.push(metaStore);
 				}
 			},
 			error: function(data) {
-				alert("Something went wrong while getting metastores list. Please try again.");
+				alert("Something went wrong while getting dbs list. Please try again.");
 			}
 		});
 	};
@@ -50,11 +49,11 @@ function metaStoresViewModel() {
 			contentType: "application/json",
 			crossDomain: true,
 			success: function(data) {
-				self.mStore.push(new metaStoreViewModel(data.DBtype,data.IPAddress,data.port,data.username,data.password,data.DBname));
+				self.metastores.push(new metaStoreViewModel(data.firstName, data.lastName));
 				self.newmetaStore(new metaStoreViewModel());
 			},
 			error: function(data) {
-				alert("Something went wrong while adding new metastore. Please try again.");
+				alert("Something went wrong while adding new db. Please try again.");
 			}
 		});
 	};
