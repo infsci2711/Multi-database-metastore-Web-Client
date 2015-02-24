@@ -32,7 +32,7 @@ function metaStoresViewModel() {
 				for (var i = 0; i < data.length; i++) {
 					var mStore = new metaStoreViewModel(data[i].DBtype,data[i].IPAddress,data[i].port,data[i].username,data[i].password,data[i].DBname);
                    
-					self.mStore.push(mStore);
+					self.mStores.push(mStore);
 				}
 			},
 			error: function(data) {
@@ -62,4 +62,4 @@ function metaStoresViewModel() {
 	self.findAll();
 }
 
-ko.applyBindings(new metaStoresViewModel(), $("#metastoresContainer")[0]);
+ko.applyBindings(new metaStoresViewModel());
