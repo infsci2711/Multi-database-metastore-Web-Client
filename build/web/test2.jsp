@@ -6,14 +6,16 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
     <body>
         <h1>Hello World!</h1>
-        <p><%out.print(request.getAttribute("dbname"));
+        <p>
+            <%if(request.getParameter("dbname")!="metastore"){
+                out.print(request.getParameter("dbname"));}
              
         %></p>
     </body>

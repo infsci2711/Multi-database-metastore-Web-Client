@@ -3,10 +3,9 @@
     Created on : Mar 23, 2015, 4:31:44 AM
     Author     : wanghao
 --%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+ 
 <!DOCTYPE html>
-<html>
+<html lang>
   <head>
         <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -107,7 +106,7 @@
 		                    <td data-bind="text: port"></td>
 		                    <td data-bind="text: username"></td>
 		                    <td data-bind="text: password"></td>
-                                    <td ><a data-bind="text: DBname, attr:{href:'test2.jsp?dbname='+'DBname'}"></a></td>
+                                    <td ><a data-bind="text: (DBname), attr:{href:'test2.jsp?dbname='+(DBname)}"></a></td>
                                     
 		                </tr>     
 		            </tbody>
