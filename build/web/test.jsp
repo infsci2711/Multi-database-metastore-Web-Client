@@ -1,3 +1,10 @@
+<%-- 
+    Document   : test
+    Created on : Mar 23, 2015, 4:31:44 AM
+    Author     : wanghao
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -39,11 +46,10 @@
   </head>
   
     <body class="metro" style="background-color: #efeae3">
- 
         <div class="container" >
             <div id="metastoresContainer">
             <form  class="form-signin">
-                        <a href="test.jsp">test</a>
+                
 
                 <h1 class="form-signin-heading">sign up</h1>
                 					<!-- ko with: newmetaStore -->
@@ -101,7 +107,7 @@
 		                    <td data-bind="text: port"></td>
 		                    <td data-bind="text: username"></td>
 		                    <td data-bind="text: password"></td>
-		                    <td data-bind="text: DBname"></td>
+                                    <td ><a data-bind="text: DBname, attr:{href:'test2.jsp?dbname='+'DBname'}"></a></td>
                                     
 		                </tr>     
 		            </tbody>
