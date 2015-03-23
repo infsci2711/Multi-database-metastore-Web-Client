@@ -1,9 +1,9 @@
 var restBaseUrl = "http://localhost:7654/";
 
-function metaStoreDBViewModel(DBname) {
+function metaStoreDBViewModel(database) {
 	var self = this;
 
-	self.DBname = ko.observable(DBname);
+	self.database = ko.observable(database);
 }
 
 function metaStoresDBViewModel() {
@@ -15,7 +15,7 @@ function metaStoresDBViewModel() {
 
 	self.findAll = function() {
 		$.ajax({
-			url: restBaseUrl + "metaStore",
+			url: restBaseUrl + "Database",
 			type: 'GET',
 			dataType: 'json',
 			contentType: "application/json",
@@ -24,7 +24,7 @@ function metaStoresDBViewModel() {
 				self.metastores.removeAll();
 
 				for (var i = 0; i < data.length; i++) {
-					var metaStoreDB = new metaStoreDBViewModel(data[i].DBname);
+					var metaStoreDB = new metaStoreDBViewModel(data[i].database);
                    
 					self.metastores.push(metaStoreDB);
 				}
