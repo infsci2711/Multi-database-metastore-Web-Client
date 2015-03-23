@@ -20,7 +20,7 @@ function schemaViewModel() {
 
 	self.findAll = function() {
 		$.ajax({
-			url: restBaseUrl + "Schema",
+			url: restBaseUrl + "Schema/"+document.getElementById("dbname")+"/"+document.getElementById("tablename"),
 			type: 'GET',
 			dataType: 'json',
 			contentType: "application/json",
