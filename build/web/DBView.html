@@ -53,17 +53,22 @@
 		    <button class="btn btn-default" data-bind="click: findAll">Refresh</button>
 		    	</h3>
                     <table class="table striped hovered dataTables" id="dataTables-1" cellspacing="0" width="100%">
-		            </thead> 
+                        <thead>
+                           <tr> 
+		                	<th>#</th>
+                            <th>database</th>
+		                </tr>  
+                    </thead> 
                             <tfoot>
 		                <tr> 
 		                	<th>#</th>
-                            <th>DBname</th>
+                            <th>database</th>
 		                </tr> 
 		            </tfoot>
 		            <tbody data-bind="foreach: metastores">
 		                <tr>  
                             <td data-bind="text: $index"></td> 
-		                    <td data-bind="text: DBname"></td>
+		                    <td data-bind="text: database"></td>
 		                </tr>     
 		            </tbody>
                             
