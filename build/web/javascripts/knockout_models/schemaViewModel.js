@@ -3,12 +3,12 @@ var restBaseUrl = "http://localhost:7654/";
 function schemaViewModel(TBfield,TBtype,TBnull,TBkey,TBdefault,TBextra) {
 	var self = this;
 
-	self.DBtype = ko.observable(TBfield);
-	self.IPAddress = ko.observable(TBtype);
-	self.port = ko.observable(TBnull);
-	self.username = ko.observable(TBkey);
-	self.password = ko.observable(TBdefault);
-	self.DBname = ko.observable(TBextra);
+	self.TBfield = ko.observable(TBfield);
+	self.TBtype = ko.observable(TBtype);
+	self.TBnull = ko.observable(TBnull);
+	self.TBkey = ko.observable(TBkey);
+	self.TBdefault = ko.observable(TBdefault);
+	self.TBextra = ko.observable(TBextra);
 }
 
 function schemaViewModel() {
