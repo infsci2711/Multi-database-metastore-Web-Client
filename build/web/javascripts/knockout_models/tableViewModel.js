@@ -22,7 +22,7 @@ function tablesViewModel() {
 
 	self.findAll = function() {
 		$.ajax({
-			url: restBaseUrl + "Table",
+			url: restBaseUrl + "Table/"+document.getElementById("dbname"),
 			type: 'GET',
 			dataType: 'json',
 			contentType: "application/json",
