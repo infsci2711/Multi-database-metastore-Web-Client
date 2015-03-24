@@ -41,11 +41,12 @@
     <body class="metro" style="background-color: #efeae3">
  
         <div class="container" >
-            <div id="metastoresContainer">
-            <form  class="form-signin">
+            <div id="metastoresContainer" class="text-center">
+            <div class="col-md-4 col-md-offset-4" >
+                <form  class="form horizontal">
 <!--                        <a href="test.jsp">test</a>-->
                         <a href="database.jsp">METADATA</a>
-
+                        
                 <h1 class="form-signin-heading">sign up</h1>
                 					<!-- ko with: newmetaStore -->
 
@@ -68,9 +69,12 @@
 
                 <button type="submit" class="btn btn-primary btn-primary btn-block" data-bind="click: addmetaStore">Sign up</button>
             </form>
-                <h3>There are <span data-bind="text: metastores().length"></span> DBs in our databases.
+</div>
+                <div class="col-md-6 col-md-offset-3">
+                <h3>There are <span data-bind="text: metastores().length"></span> Registered DBs in our databases.
 		    <button class="btn btn-default" data-bind="click: findAll">Refresh</button>
-		    	</h3>
+                </h3>
+                    </div>
                     <table class="table striped hovered dataTables" id="dataTables-1" cellspacing="0" width="100%">
 		            		            <thead>
 		                <tr>  
