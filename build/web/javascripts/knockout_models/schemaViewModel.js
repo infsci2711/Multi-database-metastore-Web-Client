@@ -1,17 +1,18 @@
 var restBaseUrl = "http://localhost:7654/";
+var dbname = document.getElementById("dbname").innerHTML;
+var tablename = document.getElementById("tablename").innerHTML;
 
-function schemaViewModel(TBfield,TBtype,TBnull,TBkey,TBdefault,TBextra) {
+function schemaViewModel(TBfield,TBtype,TBnull,TBkey,TBextra) {
 	var self = this;
 
 	self.TBfield = ko.observable(TBfield);
 	self.TBtype = ko.observable(TBtype);
 	self.TBnull = ko.observable(TBnull);
 	self.TBkey = ko.observable(TBkey);
-	self.TBdefault = ko.observable(TBdefault);
 	self.TBextra = ko.observable(TBextra);
 }
 
-function schemaViewModel() {
+function schemasViewModel() {
 	var self = this;
 
 	self.schemas = ko.observableArray();
@@ -20,18 +21,18 @@ function schemaViewModel() {
 
 	self.findAll = function() {
 		$.ajax({
-			url: restBaseUrl + "Schema/"+document.getElementById("dbname")+"/"+document.getElementById("tablename"),
+			url: restBaseUrl + "Schema/"+dbname+"/"+tablename,
 			type: 'GET',
 			dataType: 'json',
 			contentType: "application/json",
 			crossDomain: true,
 			success: function(data) {
-				self.metastores.removeAll();
+				self.schemas.removeAll();
 
 				for (var i = 0; i < data.length; i++) {
-					var schema = new schemaViewModel(data[i].TBfield,data[i].TBtype,data[i].TBnull,data[i].TBkey,data[i].TBdefault,data[i].TBextra);
+					var schema = new schemaViewModel(data[i].TBfield,data[i].TBtype,data[i].TBnull,data[i].TBkey,data[i].TBextra);
                    
-					self.schema.push(schema);
+					self.schemas.push(schema);
 				}
 			},
 			error: function(data) {
@@ -61,4 +62,4 @@ function schemaViewModel() {
 	self.findAll();
 }
 
-ko.applyBindings(new schemaViewModel());
+ko.applyBindings(new schemasViewModel());

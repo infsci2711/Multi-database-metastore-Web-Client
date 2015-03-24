@@ -3,8 +3,7 @@
     Created on : Mar 23, 2015, 4:31:44 AM
     Author     : wanghao
 --%>
-<%@ page contentType="text/html"%>
-<%@ page import = "javax.servlet.RequestDispatcher" %>
+ 
 <!DOCTYPE html>
 <html lang>
   <head>
@@ -47,35 +46,30 @@
   
     <body class="metro" style="background-color: #efeae3">
         <div class="container" >
-            <div id="tableContainer">
-                <p id="dbname" hidden><%out.print(request.getParameter("dbname"));%></p>
-                
-                <%
-                String dbname = request.getParameter("dbname");
-                session.setAttribute("dbname",dbname);
-                %>
-                <h3>There are <span data-bind="text: tables().length"></span> tables in this database.
+            <div id="databaseContainer">
+
+                <h3>There are <span data-bind="text: databases().length"></span> DBs in our databases.
 		    <button class="btn btn-default" data-bind="click: findAll">Refresh</button>
 		    	</h3>
                     <table class="table striped hovered dataTables" id="dataTables-1" cellspacing="0" width="100%">
 		            		            <thead>
 		                <tr>  
                                     <th>#</th>
-		                    <th>table</th>
+		                    <th>database</th>
 		                 
 		                </tr> 
 		            </thead> 
                             <tfoot>
 		                <tr>  
                                     <th>#</th>
-		                    <th>table</th>
+		                    <th>database</th>
 		                </tr> 
 		            </tfoot>
-		            <tbody data-bind="foreach: tables">
+		            <tbody data-bind="foreach: databases">
 		                <tr>  
                                     <td data-bind="text: $index"></td> 
 
-                                    <td ><a data-bind="text: table, attr:{href:'schema.jsp?tablename=' + table()}"></a></td>
+                                    <td ><a data-bind="text: database, attr:{href:'table.jsp?dbname=' + database()}"></a></td>
                                     
 		                </tr>     
 		            </tbody>
@@ -84,7 +78,6 @@
       </div>
             </div>
     <script>
-  loadalert();
     $(document).ready(function(){
     $('#dataTables-1').DataTable();
 });
@@ -97,6 +90,6 @@
     <script type="text/javascript" src="javascripts/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="javascripts/knockout-3.2.0.js"></script>
-    <script type="text/javascript" src="javascripts/knockout_models/tableViewModel.js"></script>
+    <script type="text/javascript" src="javascripts/knockout_models/databaseViewModel.js"></script>
   </body>
 </html>

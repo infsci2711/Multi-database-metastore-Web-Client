@@ -43,7 +43,8 @@
         <div class="container" >
             <div id="metastoresContainer">
             <form  class="form-signin">
-                        <a href="test.jsp">test</a>
+<!--                        <a href="test.jsp">test</a>-->
+                        <a href="database.jsp">METADATA</a>
 
                 <h1 class="form-signin-heading">sign up</h1>
                 					<!-- ko with: newmetaStore -->
@@ -101,7 +102,7 @@
 		                    <td data-bind="text: port"></td>
 		                    <td data-bind="text: username"></td>
 		                    <td data-bind="text: password"></td>
-		                    <td data-bind="text: DBname"></td>
+		                    <td data-bind="text: DBname, attr:{href:'table.jsp?DBname=' + DBname()"></td>
                                     
 		                </tr>     
 		            </tbody>

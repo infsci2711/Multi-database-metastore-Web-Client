@@ -1,10 +1,3 @@
-<%-- 
-    Document   : test
-    Created on : Mar 23, 2015, 4:31:44 AM
-    Author     : wanghao
---%>
-<%@ page contentType="text/html"%>
-<%@ page import = "javax.servlet.RequestDispatcher" %>
 <!DOCTYPE html>
 <html lang>
   <head>
@@ -44,59 +37,56 @@
             <!-- Custom styles for this template -->
     <link href="http://getbootstrap.com/examples/signin/signin.css" rel="stylesheet">
   </head>
-  
+
     <body class="metro" style="background-color: #efeae3">
         <div class="container" >
-            <div id="tableContainer">
-                <p id="dbname" hidden><%out.print(request.getParameter("dbname"));%></p>
-                
-                <%
-                String dbname = request.getParameter("dbname");
-                session.setAttribute("dbname",dbname);
-                %>
-                <h3>There are <span data-bind="text: tables().length"></span> tables in this database.
-		    <button class="btn btn-default" data-bind="click: findAll">Refresh</button>
+            <div id="schemasContainer">
+                <p id="dbname" ><%out.print(session.getAttribute("dbname"));%></p>
+                <p id="tablename"><%out.print(request.getParameter("tablename"));%></p>
+
+                        <h3>There are <span data-bind="text: schemas().length"></span> Schemas in this Table.
+		        	<button class="btn btn-default" data-bind="click: findAll">Refresh</button>
 		    	</h3>
                     <table class="table striped hovered dataTables" id="dataTables-1" cellspacing="0" width="100%">
-		            		            <thead>
+		            <thead>
 		                <tr>  
                                     <th>#</th>
-		                    <th>table</th>
-		                 
+		                    <th>field</th>
+		                    <th>type</th>
+                                    <th>null</th>
+                                    <th>key</th>
+                                    <th>extra</th>
 		                </tr> 
 		            </thead> 
                             <tfoot>
 		                <tr>  
                                     <th>#</th>
-		                    <th>table</th>
+		                    <th>field</th>
+		                    <th>type</th>
+                                    <th>null</th>
+                                    <th>key</th>
+                                    <th>extra</th>
 		                </tr> 
 		            </tfoot>
-		            <tbody data-bind="foreach: tables">
+		            <tbody data-bind="foreach: schemas">
 		                <tr>  
                                     <td data-bind="text: $index"></td> 
-
-                                    <td ><a data-bind="text: table, attr:{href:'schema.jsp?tablename=' + table()}"></a></td>
+		                    <td data-bind="text: TBfield"></td>  
+		                    <td data-bind="text: TBtype"></td>
+		                    <td data-bind="text: TBnull"></td>
+		                    <td data-bind="text: TBkey"></td>
+		                    <td data-bind="text: TBextra"></td>
                                     
 		                </tr>     
 		            </tbody>
-                            
 		        </table>
       </div>
             </div>
-    <script>
-  loadalert();
-    $(document).ready(function(){
-    $('#dataTables-1').DataTable();
-});
-
-
-    </script>
-    <script src="js/hitua.js"></script>
-
+    
 <!--    <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>-->
     <script type="text/javascript" src="javascripts/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="javascripts/knockout-3.2.0.js"></script>
-    <script type="text/javascript" src="javascripts/knockout_models/tableViewModel.js"></script>
+    <script type="text/javascript" src="javascripts/knockout_models/schemaViewModel.js"></script>
   </body>
-</html>
+</html> 

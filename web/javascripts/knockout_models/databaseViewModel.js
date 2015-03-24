@@ -1,17 +1,24 @@
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
 var restBaseUrl = "http://localhost:7654/";
 
-function metaStoreDBViewModel(database) {
+function databaseViewModel(database) {
 	var self = this;
 
 	self.database = ko.observable(database);
+	
 }
 
-function metaStoresDBViewModel() {
+function databasesViewModel() {
 	var self = this;
 
-	self.metastores = ko.observableArray();
+	self.databases = ko.observableArray();
 
-	self.newmetaStore = ko.observable(new metaStoreDBViewModel());
+	self.newdatabase = ko.observable(new databaseViewModel());
 
 	self.findAll = function() {
 		$.ajax({
@@ -21,12 +28,12 @@ function metaStoresDBViewModel() {
 			contentType: "application/json",
 			crossDomain: true,
 			success: function(data) {
-				self.metastores.removeAll();
+				self.databases.removeAll();
 
 				for (var i = 0; i < data.length; i++) {
-					var metaStoreDB = new metaStoreDBViewModel(data[i].database);
+					var database = new databaseViewModel(data[i].database);
                    
-					self.metastores.push(metaStoreDB);
+					self.databases.push(database);
 				}
 			},
 			error: function(data) {
@@ -34,10 +41,9 @@ function metaStoresDBViewModel() {
 			}
 		});
 	};
-
+        
 
 	self.findAll();
 }
 
-ko.applyBindings(new metaStoresDBViewModel());
-
+ko.applyBindings(new databasesViewModel());

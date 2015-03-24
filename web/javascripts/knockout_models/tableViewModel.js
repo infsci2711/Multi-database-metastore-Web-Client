@@ -5,6 +5,7 @@
  */
 
 var restBaseUrl = "http://localhost:7654/";
+var dbname = document.getElementById("dbname").innerHTML;
 
 function tableViewModel(table) {
 	var self = this;
@@ -22,7 +23,7 @@ function tablesViewModel() {
 
 	self.findAll = function() {
 		$.ajax({
-			url: restBaseUrl + "Table/"+document.getElementById("dbname"),
+			url: restBaseUrl + "Table/"+ dbname,
 			type: 'GET',
 			dataType: 'json',
 			contentType: "application/json",
@@ -46,4 +47,4 @@ function tablesViewModel() {
 	self.findAll();
 }
 
-ko.applyBindings(new tableViewModel());
+ko.applyBindings(new tablesViewModel());

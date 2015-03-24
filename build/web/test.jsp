@@ -106,7 +106,7 @@
 		                    <td data-bind="text: port"></td>
 		                    <td data-bind="text: username"></td>
 		                    <td data-bind="text: password"></td>
-                                    <td ><a data-bind="text: (DBname), attr:{href:'test2.jsp?dbname='+(DBname)}"></a></td>
+                                    <td ><a data-bind="text: DBname, attr:{href:'test2.jsp?dbname=' + DBname()}"></a></td>
                                     
 		                </tr>     
 		            </tbody>
@@ -127,6 +127,6 @@
     <script type="text/javascript" src="javascripts/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
     <script type="text/javascript" src="javascripts/knockout-3.2.0.js"></script>
-    <script type="text/javascript" src="javascripts/knockout_models/metastoreViewModel.js"></script>
+    <script type="text/javascript" src="javascripts/knockout_models/testViewModel.js"></script>
   </body>
 </html>

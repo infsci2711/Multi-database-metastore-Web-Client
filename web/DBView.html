@@ -68,7 +68,7 @@
 		            <tbody data-bind="foreach: metastores">
 		                <tr>  
                             <td data-bind="text: $index"></td> 
-		                    <td data-bind="text: database"></td>
+		                    <td data-bind="text: database, attr:{href:'table.jsp?dbname=' + dataname()"></td>
 		                </tr>     
 		            </tbody>
                             
