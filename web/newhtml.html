@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html lang="en">
+    <head>
+        <title>tree-view</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/jquery/jquery.min.js"></script>
+        <script src="js/jquery/jquery.widget.min.js"></script>
+        <script src="js/jquery/jquery.mousewheel.js"></script>
+        <link href="css/metro-bootstrap.css" rel="stylesheet">
+        <link href="css/metro-bootstrap-responsive.css" rel="stylesheet">
+        <link href="css/iconFont.css" rel="stylesheet">
+        <script src="js/metro.min.js"></script>
+        <script src="js/metro-treeview.js"></script>
+        <script>
+            $(function(){
+                $("#tree1").treeview({
+                     onNodeClick: function(node){
+                        console.log(node);
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body class="metro">
+       
+        <div class="panel" data-role="panel" style="width:500px; margin-left: 200px;">
+            <div class="panel-header">
+                <p>View All Databases</p>
+            </div>
+            <div class="panel-content">
+                <ul class="treeview" data-role="treeview">
+                    <li class="node">
+                        <a href="#"><span class="node-toggle"></span>DBname1</a>
+                        <ul>
+                            <li class="node">
+                                <a href="#"><span class="node-toggle"></span>TBname1</a>
+                                <ul>
+                                    <li><a href="#">schema1</a></li>
+                                    <li><a href="#">schema2</a></li>
+                                </ul>
+                            </li>
+                            <li class="node">
+                                <a href="#"><span class="node-toggle"></span>TBname2</a>
+                                <ul>
+                                    <li><a href="#">schema1</a></li>
+                                    <li><a href="#">schema2</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="node">
+                        <a href="#"><span class="node-toggle"></span>DBname2</a>
+                        <ul>
+                            <li class="node">
+                                <a href="#"><span class="node-toggle"></span>TBname1</a>
+                                <ul>
+                                    <li class="node">
+                                        <a href="#"><span class="node-toggle"></span>Schema</a>
+                                        <ul>
+                                            <li><a href="#">schema1</a></li>
+                                            <li><a href="#">schema2</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    
+                </ul>
+            </div>
+            
+        </div>
+    </body>
+</html>
