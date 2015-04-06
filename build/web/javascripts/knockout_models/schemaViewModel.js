@@ -36,7 +36,7 @@ function schemasViewModel() {
 				}
 			},
 			error: function(data) {
-				alert("Something went wrong while getting dbs list. Please try again.");
+				alert("Something went wrong while getting dbs schema list. Please try again.");
 			}
 		});
 	};

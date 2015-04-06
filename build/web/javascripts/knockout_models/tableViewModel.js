@@ -5,7 +5,7 @@
  */
 
 var restBaseUrl = "http://localhost:7654/";
-var dbname = document.getElementById("dbname").innerHTML;
+var dbname = document.getElementById("dbname");
 
 function tableViewModel(table) {
 	var self = this;
@@ -23,7 +23,8 @@ function tablesViewModel() {
 
 	self.findAll = function() {
 		$.ajax({
-			url: restBaseUrl + "Table/"+ dbname,
+			//url: restBaseUrl + "Table/"+ dbname,
+                        url: restBaseUrl + "metaStore",
 			type: 'GET',
 			dataType: 'json',
 			contentType: "application/json",
@@ -38,7 +39,7 @@ function tablesViewModel() {
 				}
 			},
 			error: function(data) {
-				alert("Something went wrong while getting dbs list. Please try again.");
+				alert("Something went wrong while getting dbs table list. Please try again.");
 			}
 		});
 	};
