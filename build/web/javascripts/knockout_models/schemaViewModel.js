@@ -1,4 +1,4 @@
-var restBaseUrl = "http://localhost:7654/";
+var restBaseUrl = "http://54.152.26.131:7654/";
 var dbname = document.getElementById("dbname").innerHTML;
 var tablename = document.getElementById("tablename").innerHTML;
 

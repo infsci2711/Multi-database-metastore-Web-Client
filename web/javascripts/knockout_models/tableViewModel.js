@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 
-var restBaseUrl = "http://localhost:7654/";
-//var dbname = document.getElementById("dbname");
-var dbname = "group1";
+var restBaseUrl = "http://54.152.26.131:7654/";
+var dbname = document.getElementById("dbname").innerHTML;
+//var dbname = "group1";
 
 function tableViewModel(table) {
 	var self = this;
@@ -24,8 +24,8 @@ function tablesViewModel() {
 
 	self.findAll = function() {
 		$.ajax({
-			//url: restBaseUrl + "Table/"+ dbname,
-                        url: restBaseUrl + "metaStore",
+			url: restBaseUrl + "Table/"+ dbname,
+                        //url: restBaseUrl + dbname,
 			type: 'GET',
 			dataType: 'json',
 			contentType: "application/json",

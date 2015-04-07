@@ -68,7 +68,6 @@
   
     <body class="metro" style="background-color: #efeae3">
  
-        
             <div class="col-md-4 col-md-offset-4" >
                 <form  class="form horizontal">
 <!--                        <a href="test.jsp">test</a>-->
@@ -145,10 +144,25 @@
             </div>-->
             <div class="panel-content">
                 <ul class="treeview" data-role="treeview" data-bind="foreach: metastores">
+
                     <li class="node">
-                        <a data-bind="attr: { href: 'javascript: requestBinding(\''+DBname()+'\')'}"><span class="node-toggle" ></span><p data-bind="text: DBname" id="dbname"></p></a>
-                        <div id="test">
-                            <input data-bind="value: name"/>
+<!--                        <a data-bind="attr: { href: 'javascript: requestBinding(\''+DBname()+'\')'}">-->
+                        <a data-bind="attr: { href: '#'}">
+                            <span class="node-toggle" ></span><p data-bind="text: DBname" id="dbname"></p></a>
+                        <div data-bind="stopBinding: true">
+
+                        <div id="innerTable">
+                        <ul data-bind="foreach: tables">
+                    <li class="node">
+                        <a>
+                            <span class="node-toggle" ></span><p data-bind="text: table" id="Tablename"></p></a>
+<!--                            <ul class="treeview" data-role="treeview" data-bind="foreach: metastores">
+                            
+                            </ul>-->
+                        
+                    </li>
+                    </ul>
+                        </div>
                         </div>
                         <!--<p data-bind="foreach: group1_tables">test</p>-->
                         
@@ -157,7 +171,7 @@
                                 <a href="#" data-bind="text: $index"><span class="node-toggle"></span></a>
                                 <a href="#" ><span class="node-toggle"></span><p data-bind="text: table"></p></a>
                                 <ul data-bind="foreach: schemas">
-                                    li><a href="#" data-bind="text:$index"></a></li
+                                    <li><a href="#" data-bind="text:$index"></a></li>
                                     <li><a href="#" data-bind="text:TBfield"></a></li>
                                     <li><a href="#" data-bind="text:TBtype"></a></li>
                                     <li><a href="#" data-bind="text:TBnull"></a></li>
@@ -166,10 +180,9 @@
                                 </ul>
                             </li>
                         </ul>-->
-                    </li>
+
                 </ul>
-            </div>
-        <!--</div>-->
+        </div>
         
     <script>
 //    $(document).ready(function(){

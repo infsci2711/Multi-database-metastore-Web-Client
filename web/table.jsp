@@ -48,7 +48,7 @@
     <body class="metro" style="background-color: #efeae3">
         <div class="container" >
             <div id="tableContainer">
-                <p id="dbname" hidden><%out.print(request.getParameter("dbname"));%></p>
+                <p id="dbname" ><%out.print(request.getParameter("dbname"));%></p>
                 
                 <%
                 String dbname = request.getParameter("dbname");
