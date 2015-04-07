@@ -5,7 +5,8 @@
  */
 
 var restBaseUrl = "http://localhost:7654/";
-var dbname = document.getElementById("dbname");
+//var dbname = document.getElementById("dbname");
+var dbname = "group1";
 
 function tableViewModel(table) {
 	var self = this;
