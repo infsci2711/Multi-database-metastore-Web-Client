@@ -1,10 +1,5 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-var restBaseUrl = "http://localhost:7654/";
+var restBaseUrl = "http://54.152.26.131:7654/";
 
 function databaseViewModel(database) {
 	var self = this;
