@@ -49,7 +49,7 @@ function metaStoresViewModel() {
 			contentType: "application/json",
 			crossDomain: true,
 			success: function(data) {
-				self.metastores.push(new metaStoreViewModel(data.firstName, data.lastName));
+				self.metastores.push(new metaStoreViewModel(data.DBtype,data.IPAddress,data.port,data.username,data.password,data.DBname));
 				self.newmetaStore(new metaStoreViewModel());
 			},
 			error: function(data) {
