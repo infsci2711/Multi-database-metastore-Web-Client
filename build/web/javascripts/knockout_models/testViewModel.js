@@ -1,4 +1,4 @@
-var restBaseUrl = "http://localhost:7654/";
+var restBaseUrl = "http://54.152.26.131:7654/";
 var testurl = "test2.jsp?dbname=";
 
 //var dbname= ko.observable(DBname);
