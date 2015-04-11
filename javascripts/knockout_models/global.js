@@ -1,2 +1,2 @@
 var isInDebug = true;
-var restBaseUrl = "http://localhost:7654/";
+var restBaseUrl = "http://54.152.26.131:7654/";
