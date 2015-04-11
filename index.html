@@ -1,0 +1,152 @@
+<html>
+<head>
+	<title>INFSCI 2711 MetaStore Project</title>
+
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<body style="margin: 60px;">
+	<div id = "datasourcesContainer">
+		<div class="row">
+			<div class="col-md-3">
+				<span>Datasources</span>
+				<select class="form-control"  size=13 data-bind="options: datasources, optionsText: 'databaseName', value: selectedDatasource"></select>	
+			</div>
+
+			<!-- ko with: selectedDatasource -->
+
+			<div class="col-md-3">
+				<span>Datasource Info</span>
+				<table class="table table-hover">
+					<tr>
+						<td>did</td>
+						<td  data-bind="text: did"></span></td>
+					<tr/>
+					<tr>
+						<td>ip</td>
+						<td  data-bind="text: ip"></span></td>
+					<tr/>
+					<tr>
+						<td>port</td>
+						<td  data-bind="text: port"></span></td>
+					<tr/>
+					<tr>
+						<td>databaseName</td>
+						<td  data-bind="text: databaseName"></span></td>
+					<tr/>
+					<tr>
+						<td>username</td>
+						<td  data-bind="text: username"></span></td>
+					<tr/>
+					<tr>
+						<td>password</td>
+						<td  data-bind="text: password"></span></td>
+					<tr/>
+					<tr>
+						<td>dbType</td>
+						<td  data-bind="text: dbType"></span></td>
+					<tr/>
+				</table>
+			</div>
+
+			<!-- /ko -->
+
+			<!-- ko with: selectedDatasource -->
+
+			<div class="col-md-3">
+				<span>Tables</span>
+				<select class="form-control" size=13 data-bind="options: tables, optionsText: 'tableName', value: selectedTable"></select>
+			</div>
+			<div class="col-md-3">
+
+				<!-- ko with: selectedTable -->
+				<span>Columns</span>
+				<select class="form-control" size=13 data-bind="options: columns, optionsText: 'columnName'"></select>
+
+				<!-- /ko -->
+			</div>
+
+			<!-- /ko -->
+		</div>
+	</div>
+
+<br/>
+<h3>Register a database:</h3>
+<br/>
+	<div class="row">
+		<div class="col-md-12">
+
+		<form class="form-horizontal" id="newDatasourceForm">
+			  <div class="form-group">
+			    <label for="inputEmail3" class="col-sm-2 control-label">IP Address</label>
+			    <div class="col-sm-4">
+			      <input type="text" class="form-control" id="inputEmail3" placeholder="IP Address" data-bind="value: ip">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="inputPassword3" class="col-sm-2 control-label">Port</label>
+			    <div class="col-sm-4">
+			      <input type="text" class="form-control" id="inputPassword3" placeholder="Port" data-bind="value: port">
+			    </div>
+			  </div>
+
+			  <div class="form-group">
+			    <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
+			    <div class="col-sm-4">
+			      <input type="text" class="form-control" id="inputEmail3" placeholder="Username" data-bind="value: username">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+			    <div class="col-sm-4">
+			      <input type="text" class="form-control" id="inputPassword3" placeholder="Password" data-bind="value: password">
+			    </div>
+			  </div>
+
+			  	<div class="form-group">
+			    <label for="inputPassword3" class="col-sm-2 control-label">Database Name</label>
+			    <div class="col-sm-4">
+			      <input type="text" class="form-control" id="inputPassword3" placeholder="Database Name" data-bind="value: databaseName">
+			    </div>
+			  </div>
+
+			   <div class="form-group">
+			    <label for="inputPassword3" class="col-sm-2 control-label">DB Type</label>
+			    <div class="col-sm-4">
+			      <input type="text" class="form-control" id="inputPassword3" placeholder="DB Type" data-bind="value: dbType">
+			    </div>
+			  </div>
+			  
+			   <div class="form-group">
+			    <label for="inputPassword3" class="col-sm-2 control-label">Title</label>
+			    <div class="col-sm-4">
+			      <input type="text" class="form-control" id="inputPassword3" placeholder="DB Type" data-bind="value: title">
+			    </div>
+			  </div>
+
+			   <div class="form-group">
+			    <label for="inputPassword3" class="col-sm-2 control-label">Description</label>
+			    <div class="col-sm-4">
+			      <input type="text" class="form-control" id="inputPassword3" placeholder="Description" data-bind="value: description">
+			    </div>
+			  </div>
+
+			  <div class="form-group">
+			    <div class="col-sm-offset-2 col-sm-4">
+			      <button type="submit" class="btn btn-default" data-bind="click: save">Register</button>
+			    </div>
+			  </div>
+			</form>
+
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="javascripts/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="javascripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="javascripts/knockout-3.2.0.js"></script>
+    <script type="text/javascript" src="javascripts/knockout_models/global.js"></script>
+    <script type="text/javascript" src="javascripts/knockout_models/datasourcesView.js"></script>
+</body>
+</html>
