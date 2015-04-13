@@ -93,7 +93,7 @@ function DatasourcesModel() {
 
     debugger;
                 var datasources = new DatasourceModel(datasource.id,  datasource.ipAddress, datasource.port, datasource.dbName, 
-                    datasource.username, datasource.password,datasource.dbType, tables);
+                    datasource.username, datasource.password,datasource.dbType, datasource.title, datasource.description, tables);
                 self.datasources.push(datasources);
             })
       }
