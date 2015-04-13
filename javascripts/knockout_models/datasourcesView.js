@@ -48,6 +48,7 @@ function DatasourceModel(did, ip, port, databaseName, username, password, DBtype
             }
         });
     }
+    DatasourcesModel().getDatasources();
 }
 
 function DatasourcesModel() {
