@@ -41,10 +41,10 @@ function DatasourceModel(did, ip, port, databaseName, username, password, DBtype
             contentType: "application/json",
             crossDomain: true,
             success: function(data) {
-               alert('success');
+               document.getElementById("successNote").style.visibility = "visible";
             },
             error: function(data) {
-               alert("Error");
+               alert("Error1");
             }
         });
     }
@@ -68,7 +68,7 @@ function DatasourcesModel() {
                            processDatasources(self, data);
                         },
                         error: function(data) {
-                           alert("Error");
+                           alert("Error2");
                         }
                     });
 	};

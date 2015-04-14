@@ -5,6 +5,12 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script type="text/javascript">
+    function setSuccessNote(){
+    	document.getElementById("successNote").style.visibility = "hidden";
+    }
+    window.onload = setSuccessNote;
+    </script>
 </head>
 <body style="margin: 60px;">
 	<div id = "datasourcesContainer">
@@ -80,75 +86,99 @@
 	</div>
 
 <br/>
-<h3>Register a database:</h3>
-<h4>Please DO NOT register any test or irrelavent data!</h4>
-<h4>This may cause a severe failure of Presto's, KeyWord's and our database!</h4>
+<h3>Register a data source:</h3>
+<div class="alert alert-danger" role="alert">
+	<h4>Please DO NOT register any wrong or irrelavent data!</h4>
+	<h4>This may cause a severe failure of Presto's, KeyWord's and our database!</h4>
+</div>
 <br/>
 	<div class="row">
 		<div class="col-md-12">
 
-		<form class="form-horizontal" id="newDatasourceForm">
+		<form class="form-horizontal form-signin" id="newDatasourceForm">
 			  <div class="form-group">
 			    <label for="inputEmail3" class="col-sm-2 control-label">IP Address</label>
 			    <div class="col-sm-4">
-			      <input type="text" class="form-control" id="inputEmail3" placeholder="IP Address" data-bind="value: ip">
+			      <input type="text" class="form-control" id="inputEmail3" placeholder="IP Address" data-bind="value: ip" required>
 			    </div>
 			  </div>
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-2 control-label">Port</label>
 			    <div class="col-sm-4">
-			      <input type="text" class="form-control" id="inputPassword3" placeholder="Port" data-bind="value: port">
+			      <input type="number" class="form-control" id="inputPassword3" placeholder="Port" data-bind="value: port" required>
 			    </div>
 			  </div>
 
 			  <div class="form-group">
 			    <label for="inputEmail3" class="col-sm-2 control-label">Username</label>
 			    <div class="col-sm-4">
-			      <input type="text" class="form-control" id="inputEmail3" placeholder="Username" data-bind="value: username">
+			      <input type="text" class="form-control" id="inputEmail3" placeholder="Username" data-bind="value: username" required>
 			    </div>
 			  </div>
 			  <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
 			    <div class="col-sm-4">
-			      <input type="text" class="form-control" id="inputPassword3" placeholder="Password" data-bind="value: password">
+			      <input type="text" class="form-control" id="inputPassword3" placeholder="Password" data-bind="value: password" required>
 			    </div>
 			  </div>
 
 			  	<div class="form-group">
 			    <label for="inputPassword3" class="col-sm-2 control-label">Database Name</label>
 			    <div class="col-sm-4">
-			      <input type="text" class="form-control" id="inputPassword3" placeholder="Database Name" data-bind="value: databaseName">
+			      <input type="text" class="form-control" id="inputPassword3" placeholder="Database Name" data-bind="value: databaseName" required>
 			    </div>
 			  </div>
 
 			   <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-2 control-label">DB Type</label>
 			    <div class="col-sm-4">
-			      <input type="text" class="form-control" id="inputPassword3" placeholder="DB Type" data-bind="value: dbType">
+			      <input type="text" class="form-control" id="inputPassword3" placeholder="DB Type" data-bind="value: dbType" required>
 			    </div>
 			  </div>
 			  
 			   <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-2 control-label">Title</label>
 			    <div class="col-sm-4">
-			      <input type="text" class="form-control" id="inputPassword3" placeholder="DB Type" data-bind="value: title">
+			      <input type="text" class="form-control" id="inputPassword3" placeholder="Title" data-bind="value: title" required>
 			    </div>
 			  </div>
 
 			   <div class="form-group">
 			    <label for="inputPassword3" class="col-sm-2 control-label">Description</label>
 			    <div class="col-sm-4">
-			      <input type="text" class="form-control" id="inputPassword3" placeholder="Description" data-bind="value: description">
+			      <input type="text" class="form-control" id="inputPassword3" placeholder="Description" data-bind="value: description" required>
 			    </div>
 			  </div>
 
 			  <div class="form-group">
 			    <div class="col-sm-offset-2 col-sm-4">
-			      <button type="submit" class="btn btn-default" data-bind="click: save">Register</button>
+                              <button class="btn btn-primary" type="submit">Check first</button>
+                              <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#myModal">Register</button>
+                              <!-- Modal -->
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Notice</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                        You will not be able to make any change of this data source after registered. Are you sure that all the information are correct?
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close and check</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal" data-bind="click: save">Sure! Register now</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+<!--			      <button type="submit" class="btn btn-primary btn-default" data-bind="click: save">Register</button>-->
 			    </div>
 			  </div>
 			</form>
-
+		<div class="alert alert-success" role="alert" id="successNote">
+			<h4>Well done! You have successfully registered a new data source.</h4>
+		</div>
 		</div>
 	</div>
 
