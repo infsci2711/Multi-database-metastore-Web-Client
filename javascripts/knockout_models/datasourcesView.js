@@ -68,7 +68,7 @@ function DatasourcesModel() {
                            processDatasources(self, data);
                         },
                         error: function(data) {
-                           alert("哥。。你们又输错了。。打电话给我自首吧。。412-499-1590");
+                           alert("Wrong datasource, please check");
                         }
                     });
 	};
