@@ -30,7 +30,7 @@ function DatasourceModel(did, ip, port, databaseName, username, password, DBtype
 
     self.save = function() {
         var datasourceToSend = {"ipAddress": self.ip(), "port": self.port(), "dbName": self.databaseName(),
-        "username": self.username(), "password": self.password(), "dbType": self.dbType(), 
+        "username": self.username(), "password": self.password(), "dbType": self.dbType(),
         "title": self.title(), "description": self.description() };
 
         $.ajax({
@@ -47,7 +47,7 @@ function DatasourceModel(did, ip, port, databaseName, username, password, DBtype
                alert("Error1");
             }
         });
-    }
+    };
 }
 
 function DatasourcesModel() {
@@ -85,17 +85,16 @@ function DatasourcesModel() {
 
                     $.each(table.columns, function(k, column) {
                         columns.push(new ColumnViewModel(column.columnName));
-                    })
-    debugger;
+                    });
+
                     var tableView = new TableModel(table.tableName, columns);
                     tables.push(tableView);
-                })
+                });
 
-    debugger;
-                var datasources = new DatasourceModel(datasource.id,  datasource.ipAddress, datasource.port, datasource.dbName, 
+                var datasources = new DatasourceModel(datasource.id,  datasource.ipAddress, datasource.port, datasource.dbName,
                     datasource.username, datasource.password, datasource.dbType, tables, datasource.title, datasource.description);
                 self.datasources.push(datasources);
-            })
+            });
       }
 
         self.getDatasources();
